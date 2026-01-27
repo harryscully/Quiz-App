@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F7FB ;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter";
+}
+
+.start-screen > h1, .start-screen > p {
+  margin: 0;
+  color: #293264;
+}
+
+.start-screen > h1 {
+  font-family: "Bungee";
+  font-size: 2.5rem;
+  margin-bottom: 0.25em;
+}
+
+.start-screen > p {
+  font-size: 1rem;
+  margin-bottom: 2em;
+}
+
+.start-screen > button {
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.start-screen > button:hover {
+  background-color: #293264;
+}
