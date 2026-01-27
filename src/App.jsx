@@ -5,13 +5,24 @@ import he from "he"
 export default function App() {
 
   const [quizStarted, setQuizStarted] = useState(false)
+  const [questions, setQuestions] = useState(questionData)
 
   function handleStartQuiz() {
     setQuizStarted(true)
   }
 
-  const questionElements = questionData.results.map((q) => {
-    return <p>{he.decode(q.question)}</p>
+  const questionElements = questions.results.map((q) => {
+    
+    const answers = [...q.incorrect_answers,q.correct_answer].map((a,index) => {
+      return <li key={index}>{he.decode(a)}</li>
+    })
+    
+    return (
+      <div className="question">
+        <p>{he.decode(q.question)}</p>
+        <ul>{answers}</ul>
+      </div>
+    )
   })
 
   return (
@@ -26,7 +37,7 @@ export default function App() {
         </button>
       </section>}
 
-      {quizStarted && <section>
+      {quizStarted && <section className="quiz-section">
         {questionElements}
       </section>}
     </main>
