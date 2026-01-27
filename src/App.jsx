@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { questionData } from './data/data'
 import { arrayShuffle } from "array-shuffle"
+import Confetti from "react-confetti"
+import { useWindowSize } from "react-use"
 
 import Question from "./components/Question"
 
@@ -59,8 +61,13 @@ export default function App() {
     )
   })
 
+  const { width, height } = useWindowSize()
+
   return (
     <main>
+
+      {userScore == questions.length && <Confetti width={width} height={height} gravity={0.1}/>}
+
       {!quizStarted && <section className="start-screen">
         <h1>Quizzical</h1>
         <p>See how you fare against 5 multiple choice trivia questions!</p>
