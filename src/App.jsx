@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { questionData } from './data/data'
+import he from "he"
 
 export default function App() {
 
@@ -7,6 +9,10 @@ export default function App() {
   function handleStartQuiz() {
     setQuizStarted(true)
   }
+
+  const questionElements = questionData.results.map((q) => {
+    return <p>{he.decode(q.question)}</p>
+  })
 
   return (
     <main>
@@ -21,7 +27,7 @@ export default function App() {
       </section>}
 
       {quizStarted && <section>
-        <h2>Quiz!</h2>
+        {questionElements}
       </section>}
     </main>
   )
