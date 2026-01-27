@@ -18,7 +18,6 @@ export default function Question(props) {
         <div className="question">
             <p>{he.decode(props.data.question)}</p>
             <ul>{answers}</ul>
-            <hr></hr>
         </div>
     )
 }

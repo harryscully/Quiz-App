@@ -50,3 +50,54 @@ main {
 .start-screen > button:hover {
   background-color: #293264;
 }
+
+.quiz-section {
+  padding: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  color: #293264;
+}
+
+.question {
+  padding: 2em 0;
+  border-bottom: 1px #DBDEF0 solid;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+}
+
+.question > p {
+  margin: 0;
+  max-width: 95%;
+  font-size: 1.25rem;
+  font-family: "Inter";
+  font-weight: 700;
+}
+
+.question > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: start;
+  gap: 12px;
+}
+
+li > input[type="radio"] {
+  display: none;
+}
+
+li > label {
+  font-family: "Inter";
+  font-weight: 500;
+  border: 1px #4D5B9E solid;
+  border-radius: 12px;
+  padding: 4px 16px;
+  cursor: pointer;
+}
+
+li > label:hover {
+  background-color: #eaecf9;
+}
+
