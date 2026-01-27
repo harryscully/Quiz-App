@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { questionData } from './data/data'
+import { useState, useEffect } from 'react'
+import { getQuestionData } from './data/data'
 import { arrayShuffle } from "array-shuffle"
 import Confetti from "react-confetti"
 import { useWindowSize } from "react-use"
@@ -9,12 +9,25 @@ import Question from "./components/Question"
 export default function App() {
 
   const [quizStarted, setQuizStarted] = useState(false)
-  const [questions, setQuestions] = useState(questionData.results)
+  const [questions, setQuestions] = useState([])
   const [quizEnded, setQuizEnded] = useState(false)
   const [userAnswers, setUserAnswers] = useState({})
   const [userScore, setUserScore] = useState(0)
+  const [shuffledAnswers, setShuffledAnswers] = useState([])
 
-   const [shuffledAnswers, setShuffledAnswers] = useState(() => questions.map(q => arrayShuffle([...q.incorrect_answers, q.correct_answer])))
+  useEffect(() => {
+    async function getQuestionData() {
+      const res = await fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple")
+      const data = await res.json()
+
+      if (!data.results) return
+
+      setQuestions(data.results)
+      setShuffledAnswers(() => data.results.map(q => arrayShuffle([...q.incorrect_answers, q.correct_answer])))
+    }
+    if(quizStarted) {
+    getQuestionData()}
+  }, [quizStarted])
 
   function handleStartQuiz() {
     setQuizStarted(true)
@@ -22,7 +35,7 @@ export default function App() {
 
   function handleCheckAnswers() {
     setQuizEnded(true)
-    let score = userScore
+    let score = 0
     questions.forEach((q,qIndex) => {
       if (shuffledAnswers[qIndex][userAnswers[qIndex]] == q.correct_answer) {
         score += 1
