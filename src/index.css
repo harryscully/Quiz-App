@@ -101,3 +101,8 @@ li > label:hover {
   background-color: #eaecf9;
 }
 
+li > input[type="radio"]:checked + label {
+  background-color: #D6DBF5;
+  border: 1px #D6DBF5 solid;
+}
+
