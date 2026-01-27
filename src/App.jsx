@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { getQuestionData } from './data/data'
 import { arrayShuffle } from "array-shuffle"
 import Confetti from "react-confetti"
 import { useWindowSize } from "react-use"
@@ -46,6 +45,7 @@ export default function App() {
 
   function handlePlayAgain () {
     setQuizEnded(false)
+    setQuizEnded(false)
     setUserAnswers({})
     setUserScore(0)
   }
@@ -79,7 +79,7 @@ export default function App() {
   return (
     <main>
 
-      {userScore == questions.length && <Confetti width={width} height={height} gravity={0.1}/>}
+      {quizStarted && quizEnded && userScore == questions.length && <Confetti width={width} height={height} gravity={0.1}/>}
 
       {!quizStarted && <section className="start-screen">
         <h1>Quizzical</h1>
