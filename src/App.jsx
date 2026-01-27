@@ -7,9 +7,18 @@ export default function App() {
 
   const [quizStarted, setQuizStarted] = useState(false)
   const [questions, setQuestions] = useState(questionData.results)
+  const [quizEnded, setQuizEnded] = useState(false)
 
   function handleStartQuiz() {
     setQuizStarted(true)
+  }
+
+  function handleCheckAnswers() {
+    setQuizEnded(true)
+  }
+
+  function handlePlayAgain () {
+    setQuizEnded(false)
   }
 
   const questionElements = questions.map((q, qIndex) => {
@@ -33,8 +42,20 @@ export default function App() {
 
       {quizStarted && <section className="quiz-section">
         {questionElements}
-        <button className="button">Check answers</button>
+        {!quizEnded && <button
+          onClick={handleCheckAnswers}
+          className="button"
+        >
+          Check answers
+        </button>}
+
+        {quizEnded && <div className="result-section">
+          <p>You scored 3/5 correct answers</p>
+          <button onClick={handlePlayAgain} className="button">Play again</button>
+        </div>}
       </section>}
+
+
     </main>
   )
 }
