@@ -57,6 +57,7 @@ export default function App() {
         {!quizEnded && <button
           onClick={handleCheckAnswers}
           className="button"
+          disabled={Object.keys(userAnswers).length !== questions.length}
         >
           Check answers
         </button>}

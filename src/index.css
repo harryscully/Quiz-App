@@ -111,6 +111,12 @@ li > input[type="radio"]:checked + label {
   align-self: center;
 }
 
+.quiz-section > button:disabled {
+  background-color: #DBDEF0;
+  color:#4D5B9E;
+  cursor: not-allowed;
+}
+
 .result-section {
   margin-top: 2em;
   display: flex;
