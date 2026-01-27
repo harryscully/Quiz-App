@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { questionData } from './data/data'
 import he from "he"
+import { arrayShuffle } from 'array-shuffle'
 
 export default function App() {
 
@@ -13,7 +14,7 @@ export default function App() {
 
   const questionElements = questions.map((q, qIndex) => {
     
-    const answers = [...q.incorrect_answers,q.correct_answer].map((a,index) => {
+    const answers = arrayShuffle([...q.incorrect_answers,q.correct_answer]).map((a,index) => {
       return (
         <li key={index}>
           <input type="radio" name={`q${qIndex}`} id={`q${qIndex}-a${index}`} />
