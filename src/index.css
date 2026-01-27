@@ -115,12 +115,15 @@ li > input[type="radio"]:checked + label {
   margin-top: 2em;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 3em;
 }
 
 .result-section > p {
+  margin: 0;
   font-size: 1.25rem;
   font-family: "Inter";
   font-weight: 700;
 }
+
 
