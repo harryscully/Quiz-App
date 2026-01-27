@@ -9,7 +9,12 @@ export default function Question(props) {
     const answers = shuffledAnswers.map((a, index) => {
         return (
             <li key={index}>
-                <input type="radio" name={`q${props.qIndex}`} id={`q${props.qIndex}-a${index}`} />
+                <input 
+                    onChange={()=>props.onChange(props.qIndex,index)} 
+                    type="radio" 
+                    name={`q${props.qIndex}`} 
+                    id={`q${props.qIndex}-a${index}`} 
+                />
                 <label htmlFor={`q${props.qIndex}-a${index}`}>{he.decode(a)}</label>
             </li>
         )

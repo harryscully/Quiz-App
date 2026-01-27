@@ -8,6 +8,7 @@ export default function App() {
   const [quizStarted, setQuizStarted] = useState(false)
   const [questions, setQuestions] = useState(questionData.results)
   const [quizEnded, setQuizEnded] = useState(false)
+  const [userAnswers, setUserAnswers] = useState({})
 
   function handleStartQuiz() {
     setQuizStarted(true)
@@ -21,9 +22,20 @@ export default function App() {
     setQuizEnded(false)
   }
 
+  function handleSelectAnswer(qIndex, aIndex) {
+    setUserAnswers(prev => {
+      return {
+        ...prev,
+        [qIndex]: aIndex
+      }
+    })
+  }
+
+  console.log(userAnswers)
+
   const questionElements = questions.map((q, qIndex) => {
     return (
-      <Question key={qIndex} qIndex={qIndex} data={q} />
+      <Question onChange={handleSelectAnswer} key={qIndex} qIndex={qIndex} data={q} />
     )
   })
 
