@@ -45,7 +45,7 @@ export default function App() {
 
   function handlePlayAgain () {
     setQuizEnded(false)
-    setQuizEnded(false)
+    setQuizStarted(false)
     setUserAnswers({})
     setUserScore(0)
   }
