@@ -36,8 +36,8 @@ main {
   margin-bottom: 2em;
 }
 
-.start-screen > button {
-  font-family: inherit;
+.button {
+  font-family: "Inter";
   font-size: 1rem;
   background-color: #4D5B9E;
   color: #F5F7FB;
@@ -47,7 +47,7 @@ main {
   cursor: pointer;
 }
 
-.start-screen > button:hover {
+.button:hover {
   background-color: #293264;
 }
 
@@ -104,5 +104,10 @@ li > label:hover {
 li > input[type="radio"]:checked + label {
   background-color: #D6DBF5;
   border: 1px #D6DBF5 solid;
+}
+
+.quiz-section > button {
+  margin-top: 2em;
+  align-self: center;
 }
 

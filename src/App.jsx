@@ -25,6 +25,7 @@ export default function App() {
         <p>See how you fare against 5 multiple choice trivia questions!</p>
         <button
           onClick={handleStartQuiz}
+          className="button"
         >
           Start quiz
         </button>
@@ -32,6 +33,7 @@ export default function App() {
 
       {quizStarted && <section className="quiz-section">
         {questionElements}
+        <button className="button">Check answers</button>
       </section>}
     </main>
   )
