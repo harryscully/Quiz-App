@@ -1,6 +1,4 @@
-import { useState } from "react"
 import he from "he"
-import { arrayShuffle } from "array-shuffle"
 import clsx from "clsx"
 
 export default function Question(props) {
