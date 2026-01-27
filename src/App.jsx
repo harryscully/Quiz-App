@@ -2,8 +2,12 @@ import { useState } from 'react'
 
 export default function App() {
   return (
-    <div>
-      <h1>Quiz App</h1>
-    </div>
+    <section className="start-screen">
+      <h1>Quizzical</h1>
+      <p>See how you fare against 5 multiple choice trivia questions!</p>
+      <button>
+        Start quiz
+      </button>
+    </section>
   )
 }
