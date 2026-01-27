@@ -106,6 +106,23 @@ li > input[type="radio"]:checked + label {
   border: 1px #D6DBF5 solid;
 }
 
+li > input[type="radio"]:checked + label.correct,
+li > label.correct {
+  background-color: #94D7A2;
+  border: 1px #94D7A2 solid;
+}
+
+li > input[type="radio"]:checked + label.incorrect,
+li > label.incorrect {
+  background-color: #F8BCBC;
+  border: 1px #F8BCBC solid;
+  opacity: 0.5;
+}
+
+li > label.other {
+  opacity: 0.5;
+}
+
 .quiz-section > button {
   margin-top: 2em;
   align-self: center;

@@ -35,7 +35,13 @@ export default function App() {
 
   const questionElements = questions.map((q, qIndex) => {
     return (
-      <Question onChange={handleSelectAnswer} key={qIndex} qIndex={qIndex} data={q} />
+      <Question 
+        quizEnded={quizEnded} 
+        userAnswer={userAnswers[qIndex]}
+        onChange={handleSelectAnswer} 
+        key={qIndex} 
+        qIndex={qIndex} 
+        data={q} />
     )
   })
 
