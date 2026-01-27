@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { questionData } from './data/data'
+import { arrayShuffle } from "array-shuffle"
 
 import Question from "./components/Question"
 
@@ -9,6 +10,9 @@ export default function App() {
   const [questions, setQuestions] = useState(questionData.results)
   const [quizEnded, setQuizEnded] = useState(false)
   const [userAnswers, setUserAnswers] = useState({})
+  const [userScore, setUserScore] = useState(0)
+
+   const [shuffledAnswers, setShuffledAnswers] = useState(() => questions.map(q => arrayShuffle([...q.incorrect_answers, q.correct_answer])))
 
   function handleStartQuiz() {
     setQuizStarted(true)
@@ -16,10 +20,19 @@ export default function App() {
 
   function handleCheckAnswers() {
     setQuizEnded(true)
+    let score = userScore
+    questions.forEach((q,qIndex) => {
+      if (shuffledAnswers[qIndex][userAnswers[qIndex]] == q.correct_answer) {
+        score += 1
+      }
+    })
+    setUserScore(score)
   }
 
   function handlePlayAgain () {
     setQuizEnded(false)
+    setUserAnswers({})
+    setUserScore(0)
   }
 
   function handleSelectAnswer(qIndex, aIndex) {
@@ -35,7 +48,8 @@ export default function App() {
 
   const questionElements = questions.map((q, qIndex) => {
     return (
-      <Question 
+      <Question
+        shuffledAnswers={shuffledAnswers[qIndex]}
         quizEnded={quizEnded} 
         userAnswer={userAnswers[qIndex]}
         onChange={handleSelectAnswer} 
@@ -69,7 +83,7 @@ export default function App() {
         </button>}
 
         {quizEnded && <div className="result-section">
-          <p>You scored 3/5 correct answers</p>
+          <p>{`You scored ${userScore}/5 correct answers`}</p>
           <button onClick={handlePlayAgain} className="button">Play again</button>
         </div>}
       </section>}

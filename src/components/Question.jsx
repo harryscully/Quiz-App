@@ -5,12 +5,11 @@ import clsx from "clsx"
 
 export default function Question(props) {
 
-    const [shuffledAnswers, setShuffledAnswers] = useState(() => arrayShuffle([...props.data.incorrect_answers, props.data.correct_answer]))
-
-    const answers = shuffledAnswers.map((a, index) => {
+    const answers = props.shuffledAnswers.map((a, index) => {
         return (
             <li key={index}>
                 <input 
+                    checked={props.userAnswer == index}
                     onChange={()=>props.onChange(props.qIndex,index)} 
                     type="radio" 
                     name={`q${props.qIndex}`} 
