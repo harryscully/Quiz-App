@@ -5,20 +5,24 @@ import he from "he"
 export default function App() {
 
   const [quizStarted, setQuizStarted] = useState(false)
-  const [questions, setQuestions] = useState(questionData)
+  const [questions, setQuestions] = useState(questionData.results)
 
   function handleStartQuiz() {
     setQuizStarted(true)
   }
 
-  const questionElements = questions.results.map((q) => {
+  const questionElements = questions.map((q, qIndex) => {
     
     const answers = [...q.incorrect_answers,q.correct_answer].map((a,index) => {
-      return <li key={index}>{he.decode(a)}</li>
+      return (
+        <li key={index}>
+          <input type="radio" name={`q${qIndex}`} id={`q${qIndex}-a${index}`} />
+          <label htmlFor={`q${qIndex}-a${index}`}>{he.decode(a)}</label>
+        </li>)
     })
     
     return (
-      <div className="question">
+      <div key={qIndex} className="question">
         <p>{he.decode(q.question)}</p>
         <ul>{answers}</ul>
       </div>
