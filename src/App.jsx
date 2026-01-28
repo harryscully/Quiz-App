@@ -13,9 +13,11 @@ export default function App() {
   const [userAnswers, setUserAnswers] = useState({})
   const [userScore, setUserScore] = useState(0)
   const [shuffledAnswers, setShuffledAnswers] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     async function getQuestionData() {
+      setLoading(true)
       const res = await fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple")
       const data = await res.json()
 
@@ -23,9 +25,12 @@ export default function App() {
 
       setQuestions(data.results)
       setShuffledAnswers(() => data.results.map(q => arrayShuffle([...q.incorrect_answers, q.correct_answer])))
+      setLoading(false)
     }
+
     if(quizStarted) {
-    getQuestionData()}
+      getQuestionData()
+    }
   }, [quizStarted])
 
   function handleStartQuiz() {
@@ -48,6 +53,7 @@ export default function App() {
     setQuizStarted(false)
     setUserAnswers({})
     setUserScore(0)
+    setLoading(true)
   }
 
   function handleSelectAnswer(qIndex, aIndex) {
@@ -93,6 +99,10 @@ export default function App() {
       </section>}
 
       {quizStarted && <section className="quiz-section">
+        {loading && <p className="loading">Questions loading...</p>}
+        
+        {!loading && (
+          <>
         {questionElements}
         {!quizEnded && <button
           onClick={handleCheckAnswers}
@@ -106,6 +116,8 @@ export default function App() {
           <p>{`You scored ${userScore}/5 correct answers`}</p>
           <button onClick={handlePlayAgain} className="button">Play again</button>
         </div>}
+        </>
+        )}
       </section>}
 
 
