@@ -1,7 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #F5F7FB ;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../public/image-mesh-gradient\ \(15\).png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  z-index: -1;
 }
 
 main {
@@ -63,7 +73,7 @@ main {
 
 .question {
   padding: 2em 0;
-  border-bottom: 1px #DBDEF0 solid;
+  border-bottom: 1px #c9ceec solid;
   display: flex;
   flex-direction: column;
   gap: 1.25em;
@@ -138,8 +148,9 @@ li > label.other {
 }
 
 .quiz-section > button:disabled {
-  background-color: #DBDEF0;
-  color:#4D5B9E;
+  background-color: #c9ceec;
+  opacity: 0.5;
+  color:#000;
   cursor: not-allowed;
 }
 
