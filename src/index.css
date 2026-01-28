@@ -82,10 +82,16 @@ main {
   display: flex;
   justify-content: start;
   gap: 12px;
+  flex-wrap: wrap;
+  row-gap: 1.25em;
 }
 
 li > input[type="radio"] {
   display: none;
+}
+
+li {
+  min-width: 0;
 }
 
 li > label {
@@ -95,6 +101,7 @@ li > label {
   border-radius: 12px;
   padding: 4px 16px;
   cursor: pointer;
+  text-align: center;
 }
 
 li > label:hover {
