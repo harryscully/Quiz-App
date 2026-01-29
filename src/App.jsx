@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { arrayShuffle } from "array-shuffle"
 import Confetti from "react-confetti"
 import { useWindowSize } from "react-use"
+import { Settings, X } from "lucide-react"
 
 import Question from "./components/Question"
 
@@ -14,6 +15,7 @@ export default function App() {
   const [userScore, setUserScore] = useState(0)
   const [shuffledAnswers, setShuffledAnswers] = useState([])
   const [loading, setLoading] = useState(false)
+  const [settings, setSettings] = useState(false)
 
   useEffect(() => {
     async function getQuestionData() {
@@ -32,6 +34,10 @@ export default function App() {
       getQuestionData()
     }
   }, [quizStarted])
+
+  function toggleSettings() {
+    setSettings(prev => !prev)
+  }
 
   function handleStartQuiz() {
     setQuizStarted(true)
@@ -84,6 +90,37 @@ export default function App() {
 
   return (
     <main>
+
+      {!quizStarted && 
+        <button
+          type='button'
+          onClick={toggleSettings}
+          aria-label='Open settings'
+          className=" button settings"
+        >
+          <Settings size={24} />
+        </button>}
+      
+      {!quizStarted && settings && (
+        <>
+          <div 
+            className="backdrop"
+            onClick={toggleSettings}
+          />
+
+          <div className='settings-box'>
+            <button
+              type="button"
+              aria-label='Close settings'
+              onClick={toggleSettings}
+            >
+              <X />
+            </button>
+          </div>
+        </>
+      )
+        
+      }
 
       {quizStarted && quizEnded && userScore == questions.length && <Confetti width={width} height={height} gravity={0.1}/>}
 

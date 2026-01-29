@@ -8,7 +8,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url("../public/image-mesh-gradient\ \(15\).png");
+  background: url("/image-mesh-gradient\ \(15\).png");
   background-size: cover;
   background-position: center;
   opacity: 0.8;
@@ -39,6 +39,9 @@ main {
   font-family: "Bungee";
   font-size: 4rem;
   margin-bottom: 0.25em;
+  background: linear-gradient(90deg, #293264,#4D5B9E);
+  color: transparent;
+  background-clip: text;
 }
 
 .start-screen > p {
@@ -52,6 +55,7 @@ main {
   font-family: inherit;
   font-size: 1rem;
   background-color: #4D5B9E;
+  background: linear-gradient(60deg, #293264,#4D5B9E);
   color: #F5F7FB;
   padding: 1em 2em;
   border: none;
@@ -60,7 +64,43 @@ main {
 }
 
 .button:hover {
-  background-color: #293264;
+  background: #4D5B9E;
+}
+
+.settings {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+  border-radius: 6px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: #4D5B9E;
+  background: linear-gradient(60deg, #293264,#4D5B9E);
+  cursor: pointer;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 99;
+}
+
+.settings-box {
+  position: fixed;
+  margin: auto;
+  inset: 0;
+  height: 500px;
+  width: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 100;
 }
 
 .quiz-section {
