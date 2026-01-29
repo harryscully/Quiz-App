@@ -25,7 +25,7 @@ Live demo: https://harryscully.github.io/Quiz-App
 - Basic deployment with GitHub Pages
 
 ## Future improvements
-✅ Add difficulty selection
-✅ Add category selection
+- [x] Add difficulty selection
+- [x] Add category selection
 - Save high scores
-✅ Work on mobile layout
+- [x] Work on mobile layout
