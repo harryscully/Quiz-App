@@ -179,7 +179,7 @@ export default function App() {
 
       {!quizStarted && <section className="start-screen">
         <h1>Quizzical</h1>
-        <p>See how you fare against 5 multiple choice trivia questions!</p>
+        <p>See how you fare against 5 multiple choice trivia questions! Update settings to pick category and difficulty.</p>
         <button
           onClick={handleStartQuiz}
           className="button"
