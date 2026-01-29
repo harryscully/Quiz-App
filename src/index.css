@@ -94,13 +94,69 @@ main {
 
 .settings-box {
   position: fixed;
-  margin: auto;
-  inset: 0;
-  height: 500px;
-  width: 500px;
+  box-sizing: border-box;
+  padding: 5rem 2rem 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  height: auto;
+  max-height: 90vh;
+
+  width: 90%;
+  max-width: 500px;
   background-color: #fff;
   border-radius: 10px;
   z-index: 100;
+  box-shadow: #4D5B9E50 2px 2px 50px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #293264
+}
+
+.settings-box label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  display: block;
+}
+
+.settings-box select {
+  margin-bottom: 2rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px #4D5B9E solid;
+  font-family: "Inter";
+  font-size: 1rem;
+  color: #293264
+}
+
+.settings-box button.close {
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #293264;
+  border-radius: 4px;
+}
+
+.settings-box .save {
+  position: static;
+  border-radius: 8px;
+  align-self: flex-end;
+}
+
+.settings-box .close:hover {
+  background-color: #c9ceec;
 }
 
 .quiz-section {
