@@ -1,9 +1,11 @@
 # Quiz App
-A multiple-choice trivia app built with React that fetches questions from the Open Trivia DB API.
 
-Live demo: https://harryscully.github.io/Quiz-App
+My first React project — a multiple-choice trivia app that fetches questions from the Open Trivia DB API.
+
+**Live demo:** https://harryscully.github.io/Quiz-App
 
 ## Features
+
 - Fetches questions from an external API
 - Randomised answer order per question
 - Score calculation and answer validation
@@ -12,20 +14,11 @@ Live demo: https://harryscully.github.io/Quiz-App
 - Responsive layout
 
 ## Libraries used
+
 - clsx
 - array-shuffle
 - react-confetti
 
 ## What I learned
-- Managing state across multiple components
-- Lifting state up and passing data via props
-- Controlled form inputs with radio buttons
-- Conditional rendering based on app state
-- Fetching and handling async data in React
-- Basic deployment with GitHub Pages
 
-## Future improvements
-- [x] Add difficulty selection
-- [x] Add category selection
-- Save high scores
-- [x] Work on mobile layout
+Building this taught me the core React fundamentals — managing state across components, lifting state up, controlled inputs with radio buttons, and fetching async data. It was also my first time deploying a project with GitHub Pages.
